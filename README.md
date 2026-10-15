@@ -31,7 +31,7 @@ Configure these environment variables in your AWS Amplify Console:
 
 ```
 # OpenAI Configuration
-OPENAI_API_KEY=your_openai_api_key_here
+OPENAI_API_KEY=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
 
 # Google Cloud Recaptcha Configuration
 GOOGLE_CLOUD_API_KEY=your_google_cloud_api_key_here
