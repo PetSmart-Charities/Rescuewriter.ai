@@ -1,0 +1,27 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - yarn install --frozen-lockfile
+    build:
+      commands:
+        - env | grep -e OPENAI_API_KEY >> .env.production
+        - env | grep -e GOOGLE_CLOUD_API_KEY >> .env.production
+        - env | grep -e RECAPTCHA_PROJECT_ID >> .env.production
+        - env | grep -e RECAPTCHA_SCORE_LIMIT >> .env.production
+        - env | grep -e NEXT_PUBLIC_ >> .env.production
+        - env | grep -e OPENAI_API_KEY >> .env.development
+        - env | grep -e GOOGLE_CLOUD_API_KEY >> .env.development
+        - env | grep -e RECAPTCHA_PROJECT_ID >> .env.development
+        - env | grep -e RECAPTCHA_SCORE_LIMIT >> .env.development
+        - env | grep -e NEXT_PUBLIC_ >> .env.development
+        - yarn build
+  artifacts:
+    baseDirectory: .next
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - node_modules/**/*
+      - .next/cache/**/* 

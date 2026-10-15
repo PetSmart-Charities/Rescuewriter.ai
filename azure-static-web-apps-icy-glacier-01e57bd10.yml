@@ -1,0 +1,36 @@
+name: Azure Static Web Apps CI/CD
+
+pr:
+  branches:
+    include:
+      - main
+trigger:
+  branches:
+    include:
+      - main
+      - develop
+      - staging
+
+jobs:
+- job: build_and_deploy_job
+  displayName: Build and Deploy Job
+  condition: or(eq(variables['Build.Reason'], 'Manual'),or(eq(variables['Build.Reason'], 'PullRequest'),eq(variables['Build.Reason'], 'IndividualCI')))
+  pool:
+    vmImage: ubuntu-latest
+  variables:
+  - group: Azure-Static-Web-Apps-icy-glacier-01e57bd10-variable-group
+  steps:
+  - checkout: self
+    submodules: true
+  - task: AzureStaticWebApp@0
+    inputs:
+      azure_static_web_apps_api_token: $(AZURE_STATIC_WEB_APPS_API_TOKEN_ICY_GLACIER_01E57BD10)
+      production_branch: 'main'
+      app_location: "/" # App source code path
+      api_location: "/api" # Api source code path - optional
+      output_location: "" # Built app content directory - optional
+    env:
+      NEXT_PUBLIC_RECAPTCHA_ACTION_NAME: submit
+      NEXT_PUBLIC_RECAPTCHA_SITE_KEY: 6LcBATknAAAAADaH_QBFa93EKw9rtgs9pq1bUkEo
+###### End of Repository/Build Configurations ######
+
