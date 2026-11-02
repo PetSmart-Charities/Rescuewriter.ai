@@ -1,4 +1,4 @@
-version: 1
+version: 20
 frontend:
   phases:
     preBuild:
