@@ -1,0 +1,375 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+@font-face {
+  ascent-override: 100%;
+  font-family: 'Good Sans Light';
+  src:
+    url('/fonts/GoodSans-Light.woff2') format('woff2'),
+    url('/fonts/GoodSans-Light.woff') format('woff');
+  font-style: normal;
+  font-weight: 300;
+  text-rendering: optimizeLegibility;
+}
+
+@font-face {
+  ascent-override: 100%;
+  font-family: 'Good Sans';
+  src:
+    url('/fonts/GoodSans-Regular.woff2') format('woff2'),
+    url('/fonts/GoodSans-Regular.woff') format('woff');
+  font-style: normal;
+  font-weight: 400;
+  text-rendering: optimizeLegibility;
+}
+
+@font-face {
+  ascent-override: 100%;
+  font-family: 'Good Sans Medium';
+  src:
+    url('/fonts/GoodSans-Medium.woff2') format('woff2'),
+    url('/fonts/GoodSans-Medium.woff') format('woff');
+  font-style: normal;
+  font-weight: 500;
+  text-rendering: optimizeLegibility;
+}
+
+@font-face {
+  ascent-override: 100%;
+  font-family: 'Good Sans Bold';
+  src:
+    url('/fonts/GoodSans-Bold.woff2') format('woff2'),
+    url('/fonts/GoodSans-Bold.woff') format('woff');
+  font-style: normal;
+  font-weight: 700;
+  text-rendering: optimizeLegibility;
+}
+
+@font-face {
+  ascent-override: 100%;
+  font-family: 'Good Sans Black';
+  src:
+    url('/fonts/GoodSans-Black.woff2') format('woff2'),
+    url('/fonts/GoodSans-Black.woff') format('woff');
+  font-style: normal;
+  font-weight: 900;
+  text-rendering: optimizeLegibility;
+}
+
+@font-face {
+  ascent-override: 100%;
+  font-family: 'Brandon Grotesque';
+  src:
+    url('/fonts/brandon-grotesque-light.woff2') format('woff2'),
+    url('/fonts/brandon-grotesque-light.woff') format('woff');
+  font-style: normal;
+  font-weight: 300;
+  text-rendering: optimizeLegibility;
+}
+
+@font-face {
+  ascent-override: 100%;
+  font-family: 'Brandon Grotesque';
+  src:
+    url('/fonts/brandon-grotesque.woff2') format('woff2'),
+    url('/fonts/brandon-grotesque.woff') format('woff');
+  font-style: normal;
+  font-weight: 400;
+  text-rendering: optimizeLegibility;
+}
+@font-face {
+  ascent-override: 100%;
+  font-family: 'Brandon Grotesque';
+  src:
+    url('/fonts/brandon-grotesque-medium.woff2') format('woff2'),
+    url('/fonts/brandon-grotesque-medium.woff') format('woff');
+  font-style: normal;
+  font-weight: 500;
+  text-rendering: optimizeLegibility;
+}
+
+@font-face {
+  ascent-override: 100%;
+  font-family: 'Brandon Grotesque';
+  src:
+    url('/fonts/brandon-grotesque-bold.woff2') format('woff2'),
+    url('/fonts/brandon-grotesque-bold.woff') format('woff');
+  font-style: normal;
+  font-weight: 700;
+  text-rendering: optimizeLegibility;
+}
+
+@font-face {
+  ascent-override: 100%;
+  font-family: 'Brandon Grotesque';
+  src:
+    url('/fonts/brandon-grotesque-black.woff2') format('woff2'),
+    url('/fonts/brandon-grotesque-black.woff') format('woff');
+  font-style: normal;
+  font-weight: 900;
+  text-rendering: optimizeLegibility;
+}
+
+@layer components {
+  .body {
+    @apply bg-white font-body text-lg font-normal;
+  }
+
+  .link {
+    @apply font-medium text-psc-red underline;
+  }
+
+  .link:hover {
+    @apply text-psc-red;
+  }
+
+  .link:active {
+    @apply font-bold no-underline;
+  }
+
+  .link:focus-visible {
+    @apply bg-psc-blue text-white underline outline-0;
+  }
+
+  .heading-1 {
+    @apply text-lg font-bold lg:text-2xl;
+  }
+
+  .heading-2 {
+    @apply text-lg font-medium lg:text-3xl;
+  }
+
+  .heading-3 {
+    @apply text-[1.375rem] leading-8 lg:text-3xl;
+  }
+
+  .heading-4 {
+    @apply font-bold;
+  }
+
+  .form-field {
+    @apply text-sm lg:text-base;
+  }
+
+  .border-shadow {
+    box-shadow: -10px 10px 0px 0px #000000;
+  }
+
+  .btn {
+    @apply flex  justify-center whitespace-nowrap rounded-full border-2 border-white p-3 text-2xl  font-medium lowercase text-white outline-2 outline-offset-4 outline-transparent  focus:border-2 focus:border-psc-blue focus:outline-2 focus:outline-offset-4 focus:outline-white disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .btn-primary {
+    @apply border-2 border-psc-blue bg-psc-blue outline-2 outline-psc-blue hover:bg-white hover:text-psc-blue;
+  }
+
+  .btn-secondary,
+  button.btn[type='submit'] {
+    @apply border-2 border-psc-red bg-psc-red outline-2 outline-psc-red hover:bg-white hover:text-psc-red;
+  }
+
+  .checkbox {
+    appearance: none;
+    @apply h-5 w-5 rounded-sm border-2  border-white bg-white outline outline-1 outline-offset-0 outline-white;
+  }
+
+  .checkbox:focus {
+    @apply border border-white shadow-none outline-1;
+    /* @apply outline-psc-red border-white outline-1; */
+  }
+
+  .checked {
+    @apply border-2 border-white bg-psc-red;
+  }
+
+  input[type='password'],
+  input[type='text'] {
+    @apply h-[50px] rounded-full  border border-white px-4 py-3 text-black placeholder-[#808080] outline-none;
+  }
+
+  input[type='password'] {
+    @apply border border-black;
+  }
+
+  input[type='text']:focus {
+    @apply border  border-psc-red;
+  }
+
+  /* input[type='text']:focus-visible {
+    @apply border-psc-red outline-2 outline-black;
+  } */
+
+  input[type='text'].error {
+    @apply border-psc-red;
+  }
+
+  .label {
+    @apply text-base;
+  }
+
+  .dropdown {
+    @apply border-0;
+  }
+
+  .selected {
+    @apply border border-psc-red;
+  }
+
+  .container-rounded {
+    @apply flex flex-col items-center border-b-2 border-t-2  bg-psc-blue text-white lg:w-10/12;
+  }
+
+  .container-rounded.alt {
+    @apply bg-psc-red;
+  }
+
+  .show-on-focus {
+    @apply invisible;
+  }
+
+  input:focus + .show-on-focus,
+  select:focus + .show-on-focus,
+  .show-on-focus.active {
+    @apply visible;
+  }
+
+  .input-with-label {
+    @apply relative py-6;
+  }
+
+  .result {
+    @apply text-[1.375rem] leading-8;
+  }
+
+  .error-input-text {
+    @apply absolute bottom-0 left-0 block text-right font-bold text-white;
+  }
+
+  .example {
+    @apply mt-8 flex w-10/12 flex-col items-center justify-between gap-x-4 rounded-md  bg-white py-8 text-black lg:mt-10 lg:w-full lg:flex-row lg:items-start lg:p-8;
+  }
+
+  .example span.more {
+    @apply hidden;
+  }
+
+  .example.read-more span.more {
+    @apply inline;
+  }
+
+  .example.read-more span.ellipsis {
+    @apply hidden;
+  }
+
+  .example.read-more span {
+    display: inline;
+  }
+}
+
+body {
+  @apply body;
+}
+
+p {
+  width: 100%;
+}
+
+p + p {
+  @apply mt-3;
+}
+
+h1 {
+  @apply heading-1;
+}
+
+h2 {
+  @apply heading-2;
+}
+
+h3 {
+  @apply heading-3;
+}
+
+h4 {
+  @apply heading-4;
+}
+
+.form {
+  @apply form-field;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+input[type='password'],
+input[type='text'] {
+  appearance: none;
+}
+
+select {
+  appearance: none;
+  background: url('/psc-dropdown.svg') 90% 50% no-repeat white;
+}
+
+.cell > * {
+  width: 100%;
+}
+
+input[type='checkbox'] {
+  @apply checkbox;
+}
+
+input[type='checkbox']:checked {
+  @apply checked;
+}
+
+.abel {
+}
+
+.animate-shake {
+  animation: animate-shake 0.5s ease-in-out infinite;
+  transform-origin: top center;
+}
+
+@keyframes animate-shake {
+  0% {
+    transform: rotate(0) translateX(0);
+  }
+  50% {
+    transform: rotate(10deg) translateX(0);
+  }
+  100% {
+    transform: rotate(0) translateX(0);
+  }
+}
+
+#beat {
+  animation: animate-beat 0.25s ease-out 0s infinite alternate;
+}
+
+@keyframes animate-beat {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1.1);
+  }
+}
